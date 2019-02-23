@@ -1,0 +1,29 @@
+{
+  "name": "file-tree-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "start:dev": "./node_modules/.bin/nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtpetros/file-tree-server.git"
+  },
+  "author": "Peter Almon",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "lodash": "^4.17.11",
+    "pg": "^7.8.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
+  }
+}
