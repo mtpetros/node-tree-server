@@ -9,7 +9,7 @@ const io = require('socket.io')(server)
 // const middleware = require('./middleware')
 const routes = require('./src/routes')
 
-const port = process.env.APP_PORT || 8080
+const port = process.env.PORT || 8080
 
 const corsOptions = {
   origin: 'http://0.0.0.0:7324',
