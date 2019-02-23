@@ -6,13 +6,13 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-// const middleware = require('./middleware')
 const routes = require('./src/routes')
 
 const port = process.env.PORT || 8080
 
+const getCorsOrigin = require('./src/lib/getCorsOrigin')
 const corsOptions = {
-  origin: 'http://0.0.0.0:7324',
+  origin: getCorsOrigin,
   credentials: true,
   optionsSuccessStatus: 200
 }
