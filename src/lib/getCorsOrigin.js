@@ -4,7 +4,8 @@ const whiteList = [
 ]
 
 const getCorsOrigin = (origin, cb) => {
-  if (whiteList.includes(origin)) {
+  const isAllowed = whiteList.includes(origin)
+  if (isAllowed || !origin) {
     return cb(null, true)
   }
 
