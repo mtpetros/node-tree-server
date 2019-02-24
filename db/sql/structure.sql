@@ -106,41 +106,6 @@ ALTER SEQUENCE public.factories_id_seq OWNED BY public.factories.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.users (
-    id integer NOT NULL,
-    email character varying(255) NOT NULL,
-    password bytea
-);
-
-
-ALTER TABLE public.users OWNER TO postgres;
-
---
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.users_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.users_id_seq OWNER TO postgres;
-
---
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
-
-
---
 -- Name: children id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -152,37 +117,6 @@ ALTER TABLE ONLY public.children ALTER COLUMN id SET DEFAULT nextval('public.chi
 --
 
 ALTER TABLE ONLY public.factories ALTER COLUMN id SET DEFAULT nextval('public.factories_id_seq'::regclass);
-
-
---
--- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-
-
---
--- Data for Name: children; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.children (id, factory_id, number) FROM stdin;
-\.
-
-
---
--- Data for Name: factories; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.factories (id, name, bottom, top, amount) FROM stdin;
-\.
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.users (id, email, password) FROM stdin;
-\.
 
 
 --
@@ -200,13 +134,6 @@ SELECT pg_catalog.setval('public.factories_id_seq', 1, false);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
-
-
---
 -- Name: children children_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -220,14 +147,6 @@ ALTER TABLE ONLY public.children
 
 ALTER TABLE ONLY public.factories
     ADD CONSTRAINT factories_pkey PRIMARY KEY (id);
-
-
---
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --

@@ -6,7 +6,6 @@ const validate = (schema) => {
 
     return Joi.validate(data, schema, (err) => {
       if (err) {
-        console.error(err)
         return next(err)
       }
 
