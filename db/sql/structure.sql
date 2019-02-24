@@ -16,14 +16,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: children; Type: TABLE; Schema: public; Owner: postgres
+-- Name: children; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.children (
@@ -44,10 +44,8 @@ CREATE TABLE public.children (
 );
 
 
-ALTER TABLE public.children OWNER TO postgres;
-
 --
--- Name: children_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: children_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.children_id_seq
@@ -59,17 +57,15 @@ CREATE SEQUENCE public.children_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.children_id_seq OWNER TO postgres;
-
 --
--- Name: children_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: children_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.children_id_seq OWNED BY public.children.id;
 
 
 --
--- Name: factories; Type: TABLE; Schema: public; Owner: postgres
+-- Name: factories; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.factories (
@@ -81,10 +77,8 @@ CREATE TABLE public.factories (
 );
 
 
-ALTER TABLE public.factories OWNER TO postgres;
-
 --
--- Name: factories_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: factories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.factories_id_seq
@@ -96,45 +90,29 @@ CREATE SEQUENCE public.factories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.factories_id_seq OWNER TO postgres;
-
 --
--- Name: factories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: factories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.factories_id_seq OWNED BY public.factories.id;
 
 
 --
--- Name: children id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: children id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.children ALTER COLUMN id SET DEFAULT nextval('public.children_id_seq'::regclass);
 
 
 --
--- Name: factories id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: factories id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.factories ALTER COLUMN id SET DEFAULT nextval('public.factories_id_seq'::regclass);
 
 
 --
--- Name: children_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.children_id_seq', 1, false);
-
-
---
--- Name: factories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.factories_id_seq', 1, false);
-
-
---
--- Name: children children_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: children children_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.children
@@ -142,7 +120,7 @@ ALTER TABLE ONLY public.children
 
 
 --
--- Name: factories factories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: factories factories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.factories
@@ -150,7 +128,7 @@ ALTER TABLE ONLY public.factories
 
 
 --
--- Name: children children_factory_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: children children_factory_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.children
