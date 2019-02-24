@@ -5,11 +5,11 @@ const whiteList = [
 
 const getCorsOrigin = (origin, cb) => {
   const isAllowed = whiteList.includes(origin)
-  if (isAllowed || !origin) {
+  if (isAllowed) {
     return cb(null, true)
   }
 
-  return cb(new Error(`${origin} not allowed by CORS`))
+  return cb(new Error('Origin not allowed by CORS'))
 }
 
 module.exports = getCorsOrigin
