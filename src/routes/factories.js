@@ -46,7 +46,7 @@ router.delete('/:id', (req, res, next) => {
 
   children.remove(id)
     .then(() => factories.remove(id))
-    .then(() => res.status(200).end())
+    .then(() => res.json({}))
     .catch(next)
 })
 
